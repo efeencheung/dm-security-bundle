@@ -25,13 +25,13 @@ class AddAccessMapPass implements CompilerPassInterface
     {
         $em = $container->get('doctrine')->getManager();
 
-		// 解决生产环境无法自动生成代理类的Bug                                                                                                          
-        $classes = array();
-        $classes[] = $em->getMetadataFactory()->getMetadataFor('\Dm\Bundle\SecurityBundle\Entity\AccessControl');                                       
-        $classes[] = $em->getMetadataFactory()->getMetadataFor('\Dm\Bundle\SecurityBundle\Entity\Role');                                                
-        $em->getProxyFactory()->generateProxyClasses($classes);
-
         try {
+            // 解决生产环境无法自动生成代理类的Bug                                                                                                          
+            $classes = array();
+            $classes[] = $em->getMetadataFactory()->getMetadataFor('\Dm\Bundle\SecurityBundle\Entity\AccessControl');                                       
+            $classes[] = $em->getMetadataFactory()->getMetadataFor('\Dm\Bundle\SecurityBundle\Entity\Role');                                                
+            $em->getProxyFactory()->generateProxyClasses($classes);
+
             $accessControls = $em->getRepository('DmSecurityBundle:AccessControl')->findAll();
         } catch (\Exception $e) {
             return;

@@ -8,7 +8,13 @@
     <body class=" login">
         <!-- BEGIN LOGO -->
         <div class="logo">
-            <span class="text-logo">电马科技中心</span>
+            <span class="text-logo">
+                {%- if site_name is defined and site_name -%}
+                {{- site_name -}} 
+                {%- else -%}
+                {{- '电马科技中心' -}}
+                {%- endif -%}
+            </span>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
@@ -46,7 +52,7 @@
                 </div>
             </form>
         </div>
-        <div class="copyright hide"> 2013-2016 © 北京电马网络科技中心. </div>
+        <div class="copyright hide"> 2010-2016 © 北京电马网络科技中心. </div>
         {% block global_scripts -%}
         {{ parent() }}
         {% endblock %}
