@@ -12,14 +12,14 @@
     "repositories": [
         {   
             "type": "vcs",
-            "url": "https://github.com/efeencheung/dm-theme-bundle"
+            "url": "https://github.com/efeencheung/dm-admin-bundle"
         }   
     ],
     "require": {
         "php": ">=5.3.9",
         "symfony/framework-bundle": "2.8.*",
         "stof/doctrine-extensions-bundle": "^1.2",
-        "efeencheung/dm-theme-bundle": "~1.0"
+        "efeencheung/dm-admin-bundle": "0.0.*"
     },
     "autoload": {
         "psr-4": { "Dm\\Bundle\\SecurityBundle\\": "" }
